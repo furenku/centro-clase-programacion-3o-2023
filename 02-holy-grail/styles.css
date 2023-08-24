@@ -1,0 +1,38 @@
+* {
+  outline: 1px solid #def;
+}
+
+html, body {
+  /* m0 */
+  margin: 0;
+  /* p0 */
+  padding: 0;
+}
+
+
+#main-header {
+  /* w100p */
+  width: 100%;
+  /* h3rem */
+  height: 3rem;
+}
+
+#main-footer {
+  /* w100p */
+  width: 100%;
+  /* h2rem */
+  height: 2rem;
+}
+
+.main-container {
+  /* w100p */
+  width: 100%;
+  /*h*/
+  height: calc( 100vh - 5rem );
+  
+  /* dg */
+  display: grid;
+  /* gtc */
+  grid-template-columns: 10rem 1fr 10rem;
+}
+
