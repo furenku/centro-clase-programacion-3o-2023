@@ -1,0 +1,12 @@
+.artist {
+  width: 200px;
+  margin: 1rem;
+  border: 1px solid #000;
+  padding: 1rem;
+}
+
+.artist img {
+  width: 200px;
+   box-sizing: border-box;
+
+}
