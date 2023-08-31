@@ -9,13 +9,50 @@ html, body {
   padding: 0;
 }
 
+nav li {
+  /* m0 */
+  margin: 0;
+  /* p0 */
+  padding: 0;
+  /* lsst */
+  list-style: none;
+}
+
 
 #main-header {
   /* w100p */
   width: 100%;
   /* h3rem */
   height: 3rem;
+  /* df */
+  display: flex;
 }
+
+#logo {
+  /* w10rem */
+  width: 10rem;
+}
+
+#menu {
+  /* df */
+  display: flex;
+  /* w */
+  width: calc( 100vw - 20rem );
+  /* jcsb */
+  justify-content: space-between;
+  
+}
+
+#menu li {
+  /* df */
+  display: flex;
+  /* jcc */
+  justify-content: center;
+  /* aic */
+  align-items: center;
+  /* padding-right: 1rem; */
+}
+
 
 #main-footer {
   /* w100p */
@@ -36,3 +73,11 @@ html, body {
   grid-template-columns: 10rem 1fr 10rem;
 }
 
+
+
+
+
+.color1 {
+  /* bgc */
+  background-color: antiquewhite;
+}
