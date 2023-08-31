@@ -1,6 +1,6 @@
-* {
+/* * {
   outline: 1px solid #def;
-}
+} */
 
 html, body {
   /* m0 */
@@ -80,4 +80,24 @@ nav li {
 .color1 {
   /* bgc */
   background-color: antiquewhite;
+}
+.color2 {
+  /* bgc */
+  background-color: red;
+}
+.color3 {
+  /* bgc */
+  background-color: aquamarine;
+}
+.color4 {
+  /* bgc */
+  background-color: yellowgreen;
+}
+.color5 {
+  /* bgc */
+  background-color: violet;
+}
+.color6 {
+  /* bgc */
+  background-color: tomato;
 }
