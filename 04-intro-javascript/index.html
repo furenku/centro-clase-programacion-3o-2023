@@ -1,0 +1,91 @@
+<!-- html:5 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- link -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- copiar y pegar lib. desde cdnjs: -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js" integrity="sha512-bcfltY+lNLlNxz38yBBm/HLaUB1gTV6I0e+fahbF9pS6roIdzUytozWdnFV8ZnM6cSAG5EbmO0ag0a/fLZSG4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
+    <!-- h1 -->
+    <h1>
+        Introducción a Javascript
+    </h1>
+
+
+    <!-- script -->
+    <script>
+
+        // declaramos una variable,
+        // para almacenar un texto
+        var text = "Hola mundo!"
+
+        // función, que recibe la variable.
+        console.log( text )
+
+        
+        var myVariable
+        console.log( typeof myVariable, myVariable );
+
+        myVariable = "..."
+        console.log( typeof myVariable, myVariable );
+        
+        myVariable = 123
+        console.log( typeof myVariable, myVariable );
+
+        myVariable = true
+        console.log( typeof myVariable, myVariable );
+
+        myVariable = [1,2,3]
+        console.log( typeof myVariable, myVariable );
+
+        myVariable = function () { console.log("hola") }
+        console.log( typeof myVariable, myVariable );
+        // 'var' se puede redeclarar :/
+        var myVariable
+        console.log( typeof myVariable, myVariable );
+        
+
+        // mejor usar 'let', no deja redeclarar
+        let a = 10
+        // le podemos reasignar un valor
+        a = 20
+
+        // let a = 30
+
+
+
+        const myConstant = "..."
+        
+        // myConstant = 123
+
+
+
+
+    </script>
+
+
+    <!-- script -->
+    <script>
+
+        const size = 400
+
+        function setup() {
+            createCanvas(size,size)
+        } 
+
+        function draw() {
+            background( frameCount % 255 )
+        }
+    </script>
+
+</body>
+</html>
