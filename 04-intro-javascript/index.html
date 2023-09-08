@@ -12,7 +12,7 @@
 
     <!-- copiar y pegar lib. desde cdnjs: -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js" integrity="sha512-bcfltY+lNLlNxz38yBBm/HLaUB1gTV6I0e+fahbF9pS6roIdzUytozWdnFV8ZnM6cSAG5EbmO0ag0a/fLZSG4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    
 </head>
 <body>
     <!-- h1 -->
@@ -80,11 +80,25 @@
 
         function setup() {
             createCanvas(size,size)
+            colorMode( HSB, 1, 1, 1 )
         } 
 
         function draw() {
-            background( frameCount % 255 )
+            // convertir nuestro ciclo a valores entre 0 y 1:
+            const fondo = (frameCount % 255) / 255
+
+            // const fondo = map(frameCount % 255,
+            //     // rango origen:
+            //     0, 255,
+            //     // rango destino:
+            //     0, 1
+            // )
+
+            background( fondo, 1, 1 )
+
         }
+
+
     </script>
 
 </body>

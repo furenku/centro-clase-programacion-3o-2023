@@ -1,0 +1,120 @@
+<!-- html:5 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- link -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- copiar y pegar lib. desde cdnjs: -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js" integrity="sha512-bcfltY+lNLlNxz38yBBm/HLaUB1gTV6I0e+fahbF9pS6roIdzUytozWdnFV8ZnM6cSAG5EbmO0ag0a/fLZSG4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+</head>
+<body>
+    <!-- h1 -->
+    <h1>
+        Condicionales
+    </h1>
+    
+    
+    <!-- script -->
+    <script>
+        
+        const mayoriaDeEdad = 18
+        
+        const mensajeAccesoPermitido = "Puede pasar."
+        const mensajeAccesoDenegado = "No puede pasar."
+        
+        // const edad = 20
+        // const tieneBoleto = true
+        // const estaEnLista = false
+        
+        const controlarAcceso = ( edad, tieneBoleto, estaEnLista ) => {
+
+            const esMayorDeEdad = edad >= mayoriaDeEdad
+            
+            const puedePasar = (
+            (esMayorDeEdad && tieneBoleto) || estaEnLista
+            )
+            
+            if( puedePasar ) {
+                console.log(
+                "Edad:", edad,
+                "Tiene boleto:", tieneBoleto,
+                "Está en lista:", estaEnLista,
+                mensajeAccesoPermitido
+                );
+            } else {
+                console.log(
+                "Edad:", edad,
+                "Tiene boleto:", tieneBoleto,
+                "Está en lista:", estaEnLista,
+                mensajeAccesoDenegado
+                );
+            }
+            
+        }
+
+        // invocar función:
+        
+        controlarAcceso( 17, false, true )
+
+        const edadEjemplo = 20
+        const tieneBoletoEjemplo = false
+        const estaEnListaEjemplo = false
+
+        controlarAcceso(
+            edadEjemplo,
+            tieneBoletoEjemplo,
+            estaEnListaEjemplo
+        )
+       
+
+        
+    </script>
+    
+    
+    <!-- script -->
+    <script>
+        
+        const size = 400
+        
+        function setup() {
+            createCanvas(size,size)
+            colorMode( HSB, 1, 1, 1 )
+        } 
+        
+        function draw() {
+
+            let fondo = 0
+
+            const posicionMouseX = mouseX
+            const anchoVentana = width
+
+            // ejemplo de if:
+            if( 1 < 2 ) {
+                console.log("uno es menor a dos")
+            }
+
+            // if(
+            //     // agregar condición
+            // ) {
+            //     // haremos algo
+            // }
+            
+            background( fondo, 1, 1 )
+
+            text( "mouse x: " + posicionMouseX, 30, 30 )
+            text( "ancho ventana: " + anchoVentana, 30, 60 )
+            
+        }
+        
+        
+    </script>
+    
+</body>
+</html>
