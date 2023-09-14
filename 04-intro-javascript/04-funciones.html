@@ -1,0 +1,212 @@
+<!-- html:5 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- link -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- copiar y pegar lib. desde cdnjs: -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js" integrity="sha512-bcfltY+lNLlNxz38yBBm/HLaUB1gTV6I0e+fahbF9pS6roIdzUytozWdnFV8ZnM6cSAG5EbmO0ag0a/fLZSG4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+</head>
+<body>
+    <!-- h1 -->
+    <h1>
+        Funciones
+    </h1>
+    
+    
+    <!-- script -->
+    <script>
+        
+        // declaración "tradicional":
+        // function decirAlgo() {
+        
+        // declaración "moderna"
+        const decirAlgo = () => {
+
+            const texto = "Lorem ipsum"
+            
+            console.log( texto )
+
+        }
+
+
+        decirAlgo()
+
+
+
+        const horario = "mañana"  // mañana / tarde / noche
+        // const horario = 0  // 0 - 23
+
+
+        const saludar = ( nombre, horario, formal=true, sexo ) => {
+
+            let texto = "Hola"
+            
+            if( formal ) {
+                if( sexo == "F" ) {
+                    texto = "Estimada "
+                } else if( sexo == "M" ) {
+                    texto = "Estimado "
+                }
+            }
+
+            texto += nombre + "!"
+            
+            switch( horario ) {
+                case "mañana": 
+                    texto += "\nBuenos días"
+                    break
+                case "tarde": 
+                    texto += "\nBuenas tardes"
+                    break
+                case "noche": 
+                    texto += "\nBuenas noches"
+                    break
+                    
+            }
+
+            console.log(texto);
+
+        }
+
+        saludar("Regina", "mañana", true)
+
+
+        const unNombre = "José"
+
+        saludar( unNombre , "tarde" )
+
+
+        saludar( "Pedro", "noche", true, "M" )
+
+
+        const elNombre = "Pedro"
+        const elHorario = "noche"
+        const elFormal = true
+        const elSexo = "M"
+
+        saludar( elNombre, elHorario, elFormal, elSexo )
+
+
+
+        const mostrarPerfil = ({
+            nombre, apellido, edad, profesion
+        }) => {
+
+            console.log(
+                `${ apellido }, ${ nombre}. ${ edad } años. ${profesion}`
+            );
+
+        }
+
+
+        mostrarPerfil({
+            apellido: "Rodríguez",
+            profesion: "Abogada",
+            nombre: "Carla",
+            edad: 34,
+        })
+
+
+
+        const inventarNumero = () => {
+            
+            const num = Math.floor(100 * Math.random())
+
+            return num
+                    
+        }
+
+
+        const num1 = inventarNumero()
+        const num2 = inventarNumero()
+        const num3 = inventarNumero()
+
+        console.log( num1 );    
+        console.log( num2 );
+        console.log( num3 );
+        console.log( inventarNumero() );
+
+
+        const sumar = ( a, b ) => {
+
+            const resultado = a + b
+
+            return resultado
+
+        }
+
+
+
+        const suma1 = sumar(10, 28)
+
+        console.log("suma 1", suma1);
+
+
+        const suma2 = sumar( inventarNumero(), 1000)
+
+        console.log("suma 2", suma2);
+
+
+        // flecha también es un 'return'
+        const multiplicar = ( a, b ) => (            
+            a
+            *
+            b
+        )
+
+
+        const mult1 = multiplicar( 4, 3 )
+        const mult2 = multiplicar( 100, 20 )
+
+        console.log( "mult1", mult1 );
+        console.log( "mult2", mult2 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    </script>
+    
+    
+    <!-- script -->
+    <script>
+        
+        const size = 400
+        
+        function setup() {
+            createCanvas(size,size)
+            colorMode( HSB, 1, 1, 1 )
+        } 
+        
+        function draw() {
+
+            let fondo = 0
+            
+            background( fondo, 1, 1 )
+
+        }
+        
+        
+    </script>
+    
+</body>
+</html>

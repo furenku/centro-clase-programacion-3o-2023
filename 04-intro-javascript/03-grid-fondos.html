@@ -81,6 +81,14 @@
     <!-- script -->
     <script>
         
+        // const squareSize = 100 
+
+        const columnNum = 4
+        const rowNum = 3
+
+
+
+
         const size = 400
         
         function setup() {
@@ -97,30 +105,27 @@
             
             const anchoVentana = width
 
-            /*
-            if( posicionMouseX < width / 2 &&
-                posicionMouseY < height / 2
-            ) {
-                fondo = 0.3
-            }
-            if( posicionMouseX > width / 2 &&
-                posicionMouseY < height / 2
-            ) {
-                fondo = 0.5
-            }
-            if( posicionMouseX < width / 2 &&
-                posicionMouseY > height / 2
-            ) {
-                fondo = 0.7
-            }
-            if( posicionMouseX < width / 2 &&
-                posicionMouseY < height / 2
-            ) {
-                fondo = 0.9
-            }
-            */
+            const anchoColumna = width / columnNum
+            const altoHilera = height / rowNum
             
+            const actualColumn = Math.floor( mouseX / anchoColumna )
+            const actualRow = Math.floor( mouseY / altoHilera )
+
+            const cellCount = columnNum * rowNum
+
+            
+            const actualCellNum = (actualRow * columnNum) + actualColumn
+
+            fondo = actualCellNum / cellCount
+
             background( fondo, 1, 1 )
+
+            text( actualColumn, 300, 30 );
+            text( actualRow, 300, 60 );
+            text( "cell: " + actualCellNum, 300, 90 );
+            // console.log( "", width / columnNum );
+
+
 
             text( "mouse x: " + posicionMouseX, 30, 30 )
             text( "ancho ventana: " + anchoVentana, 30, 60 )
