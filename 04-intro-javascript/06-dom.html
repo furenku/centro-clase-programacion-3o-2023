@@ -1,0 +1,155 @@
+<!-- html:5 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- style -->
+    <style>
+
+        .plantilla {
+            /* w20rem */
+            width: 20rem;
+            /* tac */
+            text-align: center;
+            /* p1rem */
+            padding: 1rem;
+            /* bd */
+            border: 1px solid #000;
+
+        }
+
+        .modelo {
+            /* dn */
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- form -->
+    <!-- <form action=""> -->
+
+        <!-- input[name=artista] -->
+        <input type="text" name="artista" oninput="escribir( this.value )">
+
+        <!-- button[type=submit]{Agregar} -->
+        <button type="submit" onclick="agregar()">
+            Agregar
+        </button>
+
+    <!-- </form> -->
+
+
+    <!-- #ejemplo -->
+    <div id="ejemplo">
+
+        <!-- article.plantilla -->
+        <article class="plantilla">
+            Victor Cibrián
+        </article>
+        
+        <article class="plantilla">
+            Tongolele
+        </article>
+
+
+    </div>
+    
+    <!-- button#mi-boton -->
+    <button id="mi-boton" onclick="cambiarFondo()">
+        Mi botón
+    </button>
+
+
+    <!-- article.plantilla.modelo -->
+    <article class="plantilla modelo">
+        Nombre de persona
+    </article>
+
+
+    <!-- script -->
+    <script>
+        
+        let nombreArtista = ""
+
+
+        const boton = document.querySelector("#mi-boton")
+
+        boton.innerHTML = "Cambiar fondo"
+
+        const elegirColor = () => {
+
+            const r = Math.floor( Math.random() * 255 )
+            const g = Math.floor( Math.random() * 255 )
+            const b = Math.floor( Math.random() * 255 )
+            
+            // se espera un resultado como éste:
+            // rgb( 255, 100, 0 )
+
+            const color = `rgb( ${r}, ${g}, ${b} )`
+
+            return color
+        }
+
+        const cambiarFondo = () => {
+
+            const html = document.querySelector("html")
+            
+            html.style = "background: " + elegirColor()
+
+        }
+
+
+        const escribir = ( value ) => {
+
+            console.log("Escribir", value )
+            nombreArtista = value
+
+        }
+
+
+        const agregar = () => {
+            agregarArtista( nombreArtista )
+        }
+
+        const agregarArtista = ( nombre ) => {
+
+            if( nombre == "" ) {
+                console.log("Nombre vacío")
+                return false
+            } 
+
+            console.log("agregar!");
+
+            // seleccionar la plantilla 'modelo'
+            const modelo = document.querySelector(".modelo")
+
+            // crear una copia
+
+            const copia = modelo.cloneNode( true )
+
+            // a la copia, agregar el texto del input
+
+            copia.innerHTML = nombre
+
+            // agregar copia a nuestro listado
+
+            const listado = document.querySelector("#ejemplo")
+            
+            listado.append( copia )
+
+            // retirar clase 'modelo' para que sea visible
+
+            copia.classList.remove("modelo")
+
+        }
+
+    </script>
+
+</body>
+</html>
