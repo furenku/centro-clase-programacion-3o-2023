@@ -46,19 +46,7 @@
 
 
     <!-- #ejemplo -->
-    <div id="ejemplo">
-
-        <!-- article.plantilla -->
-        <article class="plantilla">
-            Victor Cibrián
-        </article>
-        
-        <article class="plantilla">
-            Tongolele
-        </article>
-
-
-    </div>
+    <div id="ejemplo"></div>
     
     <!-- button#mi-boton -->
     <button id="mi-boton" onclick="cambiarFondo()">
@@ -74,7 +62,13 @@
 
     <!-- script -->
     <script>
-        
+
+        const datosIniciales = [
+            "Rosalía",
+            "Christian Castro",
+            "Verónica Castro",
+        ]
+
         let nombreArtista = ""
 
 
@@ -148,6 +142,27 @@
             copia.classList.remove("modelo")
 
         }
+
+
+        // // vamos a recorrer arreglo de datos iniciales
+        // for( let i = 0; i < datosIniciales.length; i++) {
+        //     console.log( "i:", i );
+        //     // y por cada dato
+        //     const artista = datosIniciales[ i ]
+
+        //     // ejecutaremos 'agregarArtista'
+        //     agregarArtista( artista )
+
+        // }
+
+        // más simple:
+
+        // vamos a recorrer arreglo de datos iniciales
+        // y por cada dato
+        // ejecutaremos 'agregarArtista'
+        datosIniciales.forEach( agregarArtista )
+            
+
 
     </script>
 
