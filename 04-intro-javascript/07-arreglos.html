@@ -111,16 +111,77 @@
 
         // almacenar datos de 'nuevoArreglo' en orden invertido,
         // dentro de 'arregloInvertido'
-        // sin hacer uso de función .sort
+        // sin hacer uso de función .reverse
         
 
         let arregloInvertido = []
 
-        for( let i = 0; i<nuevoArreglo.length; i++ ) {
+        for(
+            let i = 0;
+            i<nuevoArreglo.length;
+            i++
+        ) {
 
             const elemento = nuevoArreglo[ i ] 
 
-            console.log( elemento );
+            const indiceInvertido = (nuevoArreglo.length - i) - 1
+
+            arregloInvertido[ indiceInvertido ] = elemento;
+
+        }
+
+
+        console.log( "arregloInvertido", arregloInvertido);
+
+
+
+        // tomar una seccioń de un arreglo
+        // tomar desde el índice 2 hasta el índice 4
+        // el último número no se incluye, por eso '5'
+
+        const seccion = nuevoArreglo.slice( 2, 5 )
+
+        console.log( "seccion", seccion );
+        
+        // ambas expresiones permiten quitar un elemento
+        // pero no cambian la longitud
+        nuevoArreglo[2] = null
+        delete nuevoArreglo[2]
+        console.log( "nuevoArreglo", nuevoArreglo );
+
+
+        // retirar reduciendo arreglo
+
+        nuevoArreglo.splice( 1, 2 )
+
+        console.log(nuevoArreglo);
+
+
+
+
+        const indiceEncontrado = nuevoArreglo.indexOf("Nico")
+
+        console.log(
+            "indiceEncontrado",
+            indiceEncontrado,
+            nuevoArreglo[ indiceEncontrado]
+        );
+
+
+
+        const cosas = [ "patineta", "cuaderno", "termo", "pluma", "zapato" ]
+
+
+        for(
+            let i = 0;
+            i<nuevoArreglo.length;
+            i++
+        ) {
+
+            const persona = nuevoArreglo[ i ] 
+            const cosa = cosas[ i ] 
+
+            console.log("A", persona, "le toca:", cosa );
 
         }
 
@@ -133,6 +194,15 @@
     <!-- script -->
     <script>    
 
+
+        const colors = [
+            0.3,
+            0.2,
+            0.1,
+            0.5,
+            0.8,   
+        ]
+
         const size = 400
         
         function setup() {
@@ -141,6 +211,20 @@
         } 
         
         function draw() {
+
+            background( 0, 0, 0.5)
+            noStroke()
+
+            const columnWidth = width / colors.length
+
+            for( let i = 0; i<colors.length; i++ ) {
+                
+                fill( colors[i], 1, 1 )
+
+                rect( i * columnWidth, 0, columnWidth, height )
+
+            }
+
 
         }
         
