@@ -1,0 +1,273 @@
+<!-- html:5 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- link -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- copiar y pegar lib. desde cdnjs: -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js" integrity="sha512-bcfltY+lNLlNxz38yBBm/HLaUB1gTV6I0e+fahbF9pS6roIdzUytozWdnFV8ZnM6cSAG5EbmO0ag0a/fLZSG4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+</head>
+<body>
+    <!-- h1 -->
+    <h1>
+        Objetos
+    </h1>
+    
+    
+    <!-- script -->
+    <script>
+        
+        
+        const unaPersona = {
+            nombres: "Rebeca",
+            apellidos: "Pérez Jiménez",
+            edad: 25
+        }
+        
+        
+        const mencionarPersona = (persona) => {
+            
+            let texto = ""
+            
+            texto += "La persona es: " 
+            texto += persona.nombres + " " + persona.apellidos
+            texto += ". Tiene: " + persona.edad + " años"
+            
+            console.log( texto );
+            
+        }
+        
+        mencionarPersona( unaPersona )
+        
+        
+        
+        const personaConMedidas = {
+            
+            nombres: "Pablo Ernesto",
+            apellidos: "Torres Arellano",
+            edad: 22,
+            medidas: {
+                altura: 1.70,
+                pantalon: 34,
+                zapato: 8
+            }
+            
+        }
+        
+        
+        
+        const solicitarZapato = ( persona ) => {
+            
+            const talla = persona.medidas.zapato
+            
+            const texto = `${ persona.nombres } ${ persona.apellidos } solicitó un zapato talla: ${ talla }`
+            
+            console.log( texto );
+            
+        }
+        
+        solicitarZapato( personaConMedidas )
+        
+        
+        
+        const personaConActividades = {
+            nombres: "Alexis",
+            apellidos: "Cedro Cortés",
+            actividades: [
+            "Contaduría",
+            "Bicicleta de montaña",
+            "Porra de futbol",
+            "Campismo"
+            ]
+        }
+        
+        const mencionarActividades = (persona) => {
+            console.log( "Actividades de", persona.nombres, persona.apellidos, ":" )
+            let texto = ""
+
+            persona.actividades.forEach( (actividad, i) => {
+                texto += actividad
+                if( i < persona.actividades.length - 1 ) {
+                    texto += ", "
+                }
+            })
+
+            console.log( texto );
+        }
+        
+        mencionarActividades( personaConActividades )
+
+
+
+
+        const personas = [
+            {
+                nombres: "Juan",
+                apellidos: "Pérez",
+                edad: 37
+            },
+
+            {
+                nombres: "Juana",
+                apellidos: "Molina",
+                edad: 48
+            },
+
+            {
+                nombres: "Antonio",
+                apellidos: "Soprano",
+                edad: 15
+            },
+        ]
+
+
+        const enlistarPersonas = ( personas ) => {
+            personas.forEach( mencionarPersona )
+        }
+
+
+        enlistarPersonas( personas )
+        
+
+
+
+        const personaConDocumentos = {
+            nombres: "Julio",
+            apellidos: "Bracho",
+            documentos: [
+                {
+                    tipo: "INE",
+                    numero: "000000000000"
+                },
+
+                {
+                    tipo: "RFC",
+                    numero: "AAAA111111AAA"
+                },
+
+                {
+                    tipo: "CURP",
+                    numero: "AAAA111111AAAAAA1"
+                }
+            ]
+        }
+
+        const mostrarDocumento = (documento) => {
+            console.log(
+                documento.tipo + ":",
+                documento.numero
+            );
+        }
+
+        const mostrarDocumentos = (persona) => {
+
+            console.log(
+                "Nombre:",
+                persona.nombres,
+                persona.apellidos
+            );
+
+            persona.documentos.forEach( 
+                mostrarDocumento
+            )
+
+        }
+
+
+        mostrarDocumentos( personaConDocumentos )
+
+        
+        
+        
+        
+        
+        
+        
+    </script>
+    
+    
+    <!-- script -->
+    <script>    
+        
+        const size = 400
+        
+        function setup() {
+            
+            createCanvas(size,size)
+            colorMode( HSB, 1, 1, 1 )
+
+            angleMode( DEGREES )
+            
+        } 
+        
+        function draw() {
+            
+            background( 0.6, 1, 0.2 )
+
+            fill( 0.15, 1, 1 )
+
+            circle( width/2, height/2, 50 )
+
+            noFill()
+            stroke(0,0,1)
+            circle( width/2, height/2, size - 50)
+            
+            translate( width/2, height/2)
+
+
+            dibujarPlaneta({
+                size: 1,
+                distance: 1,
+                speed: 1
+            })
+
+            dibujarPlaneta({
+                size: 0,
+                distance: 0,
+                speed: 0
+            })
+
+            dibujarPlaneta({
+                size: 0.5,
+                distance: 0.5,
+                speed: 0.5
+            })
+
+
+        }
+
+        function dibujarPlaneta( planeta ) {
+
+            const minDistance = 25
+            const maxDistance = (size/2 - 25)
+            const distance = map( planeta.distance, 0, 1, minDistance, maxDistance)
+
+            const minSize = 5
+            const maxSize = 25
+            const planetSize = map( planeta.size, 0, 1, minSize, maxSize )
+
+            const speed = map( planeta.speed, 0, 1, 500, 200 )
+            const angle = map( frameCount % speed, 0, speed, 0, 360 )
+
+            push()
+                rotate( angle )
+                    translate( distance, 0 )
+                        circle( 0, 0, planetSize )
+                        noStroke()
+                        fill( 0,0,1 )
+                        rotate( 360 - angle )
+                            text("Nombre", 0, -maxSize )
+            pop()
+        }
+        
+    </script>
+    
+</body>
+</html>

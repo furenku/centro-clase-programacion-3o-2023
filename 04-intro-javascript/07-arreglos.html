@@ -195,19 +195,26 @@
     <script>    
 
 
-        const colors = [
-            0.3,
-            0.2,
-            0.1,
-            0.5,
-            0.8,   
-        ]
+        const colors = []
+        const sizes = []
 
         const size = 400
         
         function setup() {
+
+
             createCanvas(size,size)
             colorMode( HSB, 1, 1, 1 )
+            
+            for( let i = 0; i<8; i++ ) {
+                colors[i] = map( random(), 0, 1, 0.2, 0.6 )
+                // podríamos haber usado:
+                // colors.push( random() ) 
+            }
+            for( let i = 0; i<3; i++ ) {
+                sizes[i] = map( random(), 0, 1, 0.1, 0.7 )                
+            }
+
         } 
         
         function draw() {
@@ -215,13 +222,15 @@
             background( 0, 0, 0.5)
             noStroke()
 
+
             const columnWidth = width / colors.length
 
             for( let i = 0; i<colors.length; i++ ) {
                 
                 fill( colors[i], 1, 1 )
 
-                rect( i * columnWidth, 0, columnWidth, height )
+                const sizeIndex = i % sizes.length
+                rect( i * columnWidth, 0, columnWidth, height * sizes[sizeIndex] )
 
             }
 
